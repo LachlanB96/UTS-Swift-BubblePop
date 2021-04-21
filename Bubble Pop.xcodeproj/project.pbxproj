@@ -67,7 +67,7 @@
 		54D7C268261D328900BC61F9 = {
 			isa = PBXGroup;
 			children = (
-				54D7C273261D328900BC61F9 /* 1-Navigation Controller */,
+				54D7C273261D328900BC61F9 /* Bubble Pop */,
 				54D7C272261D328900BC61F9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,7 +80,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		54D7C273261D328900BC61F9 /* 1-Navigation Controller */ = {
+		54D7C273261D328900BC61F9 /* Bubble Pop */ = {
 			isa = PBXGroup;
 			children = (
 				54D7C274261D328900BC61F9 /* AppDelegate.swift */,
@@ -92,7 +92,7 @@
 				54D7C27F261D328C00BC61F9 /* LaunchScreen.storyboard */,
 				54D7C282261D328C00BC61F9 /* Info.plist */,
 			);
-			path = "1-Navigation Controller";
+			path = "Bubble Pop";
 			sourceTree = "<group>";
 		};
 		54D7C294261D3C1200BC61F9 /* Controller */ = {
