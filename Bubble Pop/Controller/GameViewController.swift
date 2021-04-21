@@ -61,14 +61,8 @@ class GameViewController: UIViewController {
     }
     
     @objc func generateBubble() {
-        //let colour = UIColor.init()
-        
-        let bubble = Bubble();
-        bubbleFactory.addBubble(newBubble: bubble, view: self.view)
-//
-        //bubble.animation()
-        //bubble.addTarget(self, action: #selector(bubblePressed), for: .touchUpInside)
-        //self.view.addSubview(bubble)
+        bubbleFactory.addBubble(view: self.view)
+
     }
 
 }

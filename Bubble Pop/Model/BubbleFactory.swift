@@ -42,8 +42,9 @@ class BubbleFactory{
         }
     }
     
-    func addBubble(newBubble: Bubble, view: UIView){
+    func addBubble(view: UIView){
         if (bubbleArray.count < maximumBubbles){
+            let newBubble = Bubble()
             let bubbleRandom = Int.random(in: 1...100)
             if (bubbleRandom < 40){
                 newBubble.setup(colour: "red", points: 1)
