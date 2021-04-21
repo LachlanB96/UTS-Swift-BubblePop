@@ -21,7 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		54D7C271261D328900BC61F9 /* 1-Navigation Controller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "1-Navigation Controller.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54D7C271261D328900BC61F9 /* Bubble Pop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bubble Pop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54D7C274261D328900BC61F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54D7C276261D328900BC61F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		54D7C278261D328900BC61F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 		54D7C272261D328900BC61F9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				54D7C271261D328900BC61F9 /* 1-Navigation Controller.app */,
+				54D7C271261D328900BC61F9 /* Bubble Pop.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,9 +109,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		54D7C270261D328900BC61F9 /* 1-Navigation Controller */ = {
+		54D7C270261D328900BC61F9 /* Bubble Pop */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 54D7C285261D328C00BC61F9 /* Build configuration list for PBXNativeTarget "1-Navigation Controller" */;
+			buildConfigurationList = 54D7C285261D328C00BC61F9 /* Build configuration list for PBXNativeTarget "Bubble Pop" */;
 			buildPhases = (
 				54D7C26D261D328900BC61F9 /* Sources */,
 				54D7C26E261D328900BC61F9 /* Frameworks */,
@@ -121,9 +121,9 @@
 			);
 			dependencies = (
 			);
-			name = "1-Navigation Controller";
+			name = "Bubble Pop";
 			productName = "1-Navigation Controller";
-			productReference = 54D7C271261D328900BC61F9 /* 1-Navigation Controller.app */;
+			productReference = 54D7C271261D328900BC61F9 /* Bubble Pop.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -140,7 +140,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 54D7C26C261D328900BC61F9 /* Build configuration list for PBXProject "1-Navigation Controller" */;
+			buildConfigurationList = 54D7C26C261D328900BC61F9 /* Build configuration list for PBXProject "Bubble Pop" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -153,7 +153,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				54D7C270261D328900BC61F9 /* 1-Navigation Controller */,
+				54D7C270261D328900BC61F9 /* Bubble Pop */,
 			);
 		};
 /* End PBXProject section */
@@ -336,7 +336,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.huazuo.--Navigation-Controller";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lachlanb.bubblepop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -354,7 +354,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.huazuo.--Navigation-Controller";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lachlanb.bubblepop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -364,7 +364,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		54D7C26C261D328900BC61F9 /* Build configuration list for PBXProject "1-Navigation Controller" */ = {
+		54D7C26C261D328900BC61F9 /* Build configuration list for PBXProject "Bubble Pop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				54D7C283261D328C00BC61F9 /* Debug */,
@@ -373,7 +373,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		54D7C285261D328C00BC61F9 /* Build configuration list for PBXNativeTarget "1-Navigation Controller" */ = {
+		54D7C285261D328C00BC61F9 /* Build configuration list for PBXNativeTarget "Bubble Pop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				54D7C286261D328C00BC61F9 /* Debug */,
