@@ -10,7 +10,7 @@ import Foundation
 class BubbleFactory{
     
     
-    var maximumBubbles = 5000
+    var maximumBubbles = 10
     var bubbleSpawnLength = 5
     var bubbleSpawnRandomiser = 0.8
     
@@ -35,6 +35,8 @@ class BubbleFactory{
         for bubble in bubbleArray {
             let bubbleResponse = bubble.tick()
             if (bubbleResponse == "death"){
+                print(bubbleArray.firstIndex(of: bubble))
+                
                 bubbleArray.remove(at: bubbleArray.index(of: bubble) ??  0)
             }
         }
@@ -42,10 +44,17 @@ class BubbleFactory{
     
     func addBubble(newBubble: Bubble, view: UIView){
         if (bubbleArray.count < maximumBubbles){
-            if (Int.random(in: 1...2) == 1){
-                newBubble.setup(colour: "red", points: 2)
+            let bubbleRandom = Int.random(in: 1...100)
+            if (bubbleRandom < 40){
+                newBubble.setup(colour: "red", points: 1)
+            } else if (bubbleRandom < 70){
+                newBubble.setup(colour: "pink", points: 2);
+            } else if (bubbleRandom < 85) {
+                newBubble.setup(colour: "green", points: 5)
+            } else if (bubbleRandom < 95) {
+                newBubble.setup(colour: "blue", points: 8)
             } else {
-                newBubble.setup(colour: "green", points: 1);
+                newBubble.setup(colour: "black", points: 10)
             }
             bubbleArray.append(newBubble)
             newBubble.animation()
@@ -63,6 +72,6 @@ class BubbleFactory{
             comboKeeper.currentCombo = 0
         }
         comboKeeper.lastTagPressed = sender.tag
-        score += Int(Double(sender.tag) * (Double(comboKeeper.currentCombo) * 1.5))        
+        score += Int(Double(sender.tag) + (Double(comboKeeper.currentCombo) * 1.5 * Double(sender.tag)))
     }
 }

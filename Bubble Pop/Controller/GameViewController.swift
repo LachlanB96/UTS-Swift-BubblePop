@@ -36,6 +36,7 @@ class GameViewController: UIViewController {
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) {
             timer in
             self.generateBubble()
+            self.bubbleFactory.tick()
             self.counting()
         }
         

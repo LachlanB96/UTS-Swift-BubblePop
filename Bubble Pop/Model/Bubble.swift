@@ -32,11 +32,21 @@ class Bubble: UIButton {
     }
     
     func setup(colour: String, points: Int){
-        if (colour == "green"){
+        switch colour{
+        case "red":
+            self.backgroundColor = .systemRed
+        case "pink":
+            self.backgroundColor = .systemPink
+        case "green":
             self.backgroundColor = .green
-        } else if (colour == "red"){
-            self.backgroundColor = .red
+        case "blue":
+            self.backgroundColor = .blue
+        case "black":
+            self.backgroundColor = .black
+        default:
+            self.backgroundColor = .purple
         }
+
         self.points = points
         self.tag = points
     }
