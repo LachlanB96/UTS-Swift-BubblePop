@@ -18,7 +18,7 @@ class Bubble: UIButton {
     override init(frame: CGRect)  {
         super.init(frame: frame)
         self.backgroundColor = .red
-        self.frame = CGRect(x: xPosition, y: yPosition, width: 50, height: 50)
+        self.frame = CGRect(x: 60, y: 60, width: 40, height: 40)
         self.layer.cornerRadius = 0.5 * self.bounds.size.width
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true){
             timer in
