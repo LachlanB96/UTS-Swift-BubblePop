@@ -82,14 +82,13 @@ class BubbleFactory{
                 
                 posX = Int.random(in: leftMargin...400-rightMargin)
                 posY = Int.random(in: topMargin...800-bottomMargin)
-                print("Bubbles: \(bubbleArray.count). x: \(posX), y: \(posY)")
                 pos = CGPoint.init(x: posX, y: posY)
                 for bubble in bubbleArray {
                     //if (bubble.frame.contains(pos)){
                     if (collisionDetect(bubble.frame, CGRect(x: posX, y: posY, width: 40, height: 40))) {
                         validPlacement = false
-                        print("Collission=======")
-                        print("x: \(bubble.frame.midX), y: \(bubble.frame.midY)")
+                        //print("Collission=======")
+                        //print("x: \(bubble.frame.midX), y: \(bubble.frame.midY)")
                     }
                 }
             }
