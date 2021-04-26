@@ -107,7 +107,7 @@ class BubbleFactory{
     @IBAction func bubblePressed(_ sender: UIButton){
         //sender.removeFromSuperview()
         sender.backgroundColor = .black
-        sender.flash()
+        //sender.flash()
         if (sender.tag == comboKeeper.lastTagPressed){
             comboKeeper.onCombo = 1
         } else {

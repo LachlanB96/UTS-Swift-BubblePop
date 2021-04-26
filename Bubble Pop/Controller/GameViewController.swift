@@ -44,10 +44,9 @@ class GameViewController: UIViewController {
     
     @objc func counting() {
         remainingTime -= 0.1
-        remainingTimeLabel.text = String(remainingTime)
-        scoreLabel.text = String(bubbleFactory.score)
         
-        if remainingTime == 0 {
+        
+        if remainingTime < 0 {
             timer.invalidate()
             
             // show HighScore Screen
@@ -58,6 +57,9 @@ class GameViewController: UIViewController {
             
             
         }
+        remainingTimeLabel.text = String(remainingTime)
+        scoreLabel.text = String(bubbleFactory.score)
+        
     }
     
     @objc func generateBubble() {
