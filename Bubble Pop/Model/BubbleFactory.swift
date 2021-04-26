@@ -11,25 +11,25 @@ class BubbleFactory{
     
     
     //Bubble spawn margins
-    var leftMargin = 20
-    var rightMargin = 20
-    var topMargin = 100
-    var bottomMargin = 20
+    var leftMargin = 40
+    var rightMargin = 40
+    var topMargin = 150
+    var bottomMargin = 40
     
     var maximumBubbles = 15
     var bubbleSpawnLength = 10
-    var bubbleSpawnRandomiser = 0.8
+    var bubbleSpawnRandomiser: Float = 0.8
     
-    var score = 0;
+    var score: Float = 0;
     
     var bubbleArray: [Bubble];
     
     struct combo {
-        var lastTagPressed: Int = 0;
-        var currentCombo: Int = 0;
+        var lastTagPressed: Int;
+        var onCombo: Float;
     }
     
-    var comboKeeper = combo.init(lastTagPressed: 0, currentCombo: 0)
+    var comboKeeper = combo.init(lastTagPressed: 0, onCombo: 0)
     
     
     init(){
@@ -47,7 +47,7 @@ class BubbleFactory{
     }
     
     func collisionDetect(_ origin : CGRect, _ collider : CGRect) -> Bool {
-        let distanceX = pow(origin.midX - collider.midY, 2)
+        let distanceX = pow(origin.midX - collider.midX, 2)
         let distanceY = pow(origin.midY - collider.midY, 2)
         let distance = Int(Float(distanceX + distanceY).squareRoot())
         let objectCombinedWidth = Int((origin.width + collider.width)) //create distance that objects can be apart
@@ -80,8 +80,8 @@ class BubbleFactory{
             while (!validPlacement){
                 validPlacement = true
                 
-                posX = Int.random(in: leftMargin...200-rightMargin)
-                posY = Int.random(in: topMargin...300-bottomMargin)
+                posX = Int.random(in: leftMargin...400-rightMargin)
+                posY = Int.random(in: topMargin...800-bottomMargin)
                 print("Bubbles: \(bubbleArray.count). x: \(posX), y: \(posY)")
                 pos = CGPoint.init(x: posX, y: posY)
                 for bubble in bubbleArray {
@@ -107,12 +107,13 @@ class BubbleFactory{
     @IBAction func bubblePressed(_ sender: UIButton){
         //sender.removeFromSuperview()
         sender.backgroundColor = .black
+        sender.flash()
         if (sender.tag == comboKeeper.lastTagPressed){
-            comboKeeper.currentCombo += 1
+            comboKeeper.onCombo = 1
         } else {
-            comboKeeper.currentCombo = 0
+            comboKeeper.onCombo = 0
         }
         comboKeeper.lastTagPressed = sender.tag
-        score += Int(Double(sender.tag) + (Double(comboKeeper.currentCombo) * 1.5 * Double(sender.tag)))
+        score += Float(sender.tag) + (comboKeeper.onCombo * 0.5 * Float(sender.tag))
     }
 }

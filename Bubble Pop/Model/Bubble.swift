@@ -11,8 +11,10 @@ class Bubble: UIButton {
     
     let xPosition = Int.random(in: 20...400)
     let yPosition = Int.random(in: 20...800)
-    var points = 0
-    var lifeLeft = 30
+    var points: Int = 0
+    var defaultLife : Float = 30.0
+    var lifeRandomSurvival = Float.random(in: 70...130) / 100.0
+    var lifeLeft : Int = 0
     var timer = Timer()
     
     override init(frame: CGRect)  {
@@ -20,10 +22,10 @@ class Bubble: UIButton {
         self.backgroundColor = .red
         self.frame = CGRect(x: 60, y: 60, width: 40, height: 40)
         self.layer.cornerRadius = 0.5 * self.bounds.size.width
-        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true){
-            timer in
-            self.tick()
-        }
+        //timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true){
+        //    timer in
+        //    self.tick()
+        //}
     }
     
 
@@ -46,9 +48,12 @@ class Bubble: UIButton {
         default:
             self.backgroundColor = .purple
         }
-
+        self.setTitle(String(points), for: .normal)
+        self.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
         self.points = points
         self.tag = points
+        self.lifeLeft = Int(defaultLife * lifeRandomSurvival)
+        
     }
     
     func tick() -> String{
