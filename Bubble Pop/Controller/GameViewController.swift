@@ -53,11 +53,9 @@ class GameViewController: UIViewController {
                 print("Normal: \(bubbleFactory.score). String: \(String(bubbleFactory.score)).")
                 highscores.append([String(name ?? "No Name"), String(bubbleFactory.score)])
                 UserDefaults.standard.set(highscores, forKey: "highscores")
-                print("1")
             } else {
                 let highscore = [[String(name ?? "No Name"), String(bubbleFactory.score)]]
                 UserDefaults.standard.set(highscore, forKey: "highscores")
-                print("2")
             }
             
             if let item =  UserDefaults.standard.value(forKey: "highscores") as? [[String]] {

@@ -7,49 +7,57 @@
 
 import UIKit
 
-class HighScoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HighScoreViewController: UIViewController {
 
     @IBOutlet weak var highscoreTableView: UITableView!
+    
     var highscores: [[String]] = [[]]
-    
-    let names: [String] = ["123", "456"]
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let nib = UINib(nibName: "CustomTableViewCell", bundle: nil)
+        highscoreTableView.register(nib, forCellReuseIdentifier: "CustomTableViewCell")
         highscoreTableView.delegate = self
         highscoreTableView.dataSource = self
-        
-        
         if let highscores =  UserDefaults.standard.value(forKey: "highscores") as? [[String]] {
-            self.highscores = highscores
+            self.highscores = sortScores(highscores: highscores)
         }
-        // Do any additional setup after loading the view.
     }
+    
+    // https://stackoverflow.com/a/39756583
+    func sortScores(highscores: [[String]]) -> [[String]] {
+        if(highscores.count > 1) {
+            return highscores.sorted(by: { $0[1] > $1[1] })
+        }
+        return highscores
+    }
+    
+    @IBAction func mainMenuButton(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+}
+
+extension HighScoreViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return highscores.count
+    }
+}
+
+extension HighScoreViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("The row is tapped")
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Number of scores: \(highscores.count)")
-        print(highscores)
-        return highscores.count
+        print("\(highscores[indexPath.row][1])")
+        print(type(of: highscores[indexPath.row][1]))
+        UserDefaults.standard.set([[]], forKey: "highscores")
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let customCell = highscoreTableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath)
-        print(indexPath)
-        customCell.textLabel?.text = ("Name: \(highscores[indexPath.row][0]). Score: \(highscores[indexPath.row][1]).")
+        let customCell = highscoreTableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
+        customCell.nameLabel.text = ("Name: \(highscores[indexPath.row][0])")
+        customCell.scoreLabel.text = ("Score: \(highscores[indexPath.row][1])")
         customCell.backgroundColor = .blue
         return customCell
     }
-    
-
-    @IBAction func returnMainPage(_ sender: UIButton) {
-        
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-    
-
 }
