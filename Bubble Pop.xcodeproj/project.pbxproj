@@ -17,6 +17,9 @@
 		54D7C28F261D3B8000BC61F9 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7C28E261D3B8000BC61F9 /* HighScoreViewController.swift */; };
 		54D7C292261D3BC100BC61F9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7C291261D3BC100BC61F9 /* GameViewController.swift */; };
 		54D7C29C261D6AE400BC61F9 /* Bubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7C29B261D6AE400BC61F9 /* Bubble.swift */; };
+		C31577F726393431006E53CD /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31577F526393431006E53CD /* CustomTableViewCell.swift */; };
+		C31577F826393431006E53CD /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C31577F626393431006E53CD /* CustomTableViewCell.xib */; };
+		C31577FB26394DBC006E53CD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31577FA26394DBC006E53CD /* SettingsViewController.swift */; };
 		C3933365262EBD8C00D0EC33 /* BubbleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3933364262EBD8C00D0EC33 /* BubbleFactory.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +36,9 @@
 		54D7C28E261D3B8000BC61F9 /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		54D7C291261D3BC100BC61F9 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		54D7C29B261D6AE400BC61F9 /* Bubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubble.swift; sourceTree = "<group>"; };
+		C31577F526393431006E53CD /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		C31577F626393431006E53CD /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		C31577FA26394DBC006E53CD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C3933364262EBD8C00D0EC33 /* BubbleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,6 +66,8 @@
 			isa = PBXGroup;
 			children = (
 				54D7C27A261D328A00BC61F9 /* Main.storyboard */,
+				C31577F526393431006E53CD /* CustomTableViewCell.swift */,
+				C31577F626393431006E53CD /* CustomTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -102,6 +110,7 @@
 				54D7C28A261D39B000BC61F9 /* GameSettingViewController.swift */,
 				54D7C28E261D3B8000BC61F9 /* HighScoreViewController.swift */,
 				54D7C291261D3BC100BC61F9 /* GameViewController.swift */,
+				C31577FA26394DBC006E53CD /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -165,6 +174,7 @@
 			files = (
 				54D7C281261D328C00BC61F9 /* LaunchScreen.storyboard in Resources */,
 				54D7C27E261D328C00BC61F9 /* Assets.xcassets in Resources */,
+				C31577F826393431006E53CD /* CustomTableViewCell.xib in Resources */,
 				54D7C27C261D328A00BC61F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,8 +186,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C31577F726393431006E53CD /* CustomTableViewCell.swift in Sources */,
 				54D7C279261D328900BC61F9 /* ViewController.swift in Sources */,
 				54D7C28F261D3B8000BC61F9 /* HighScoreViewController.swift in Sources */,
+				C31577FB26394DBC006E53CD /* SettingsViewController.swift in Sources */,
 				C3933365262EBD8C00D0EC33 /* BubbleFactory.swift in Sources */,
 				54D7C275261D328900BC61F9 /* AppDelegate.swift in Sources */,
 				54D7C28B261D39B000BC61F9 /* GameSettingViewController.swift in Sources */,
