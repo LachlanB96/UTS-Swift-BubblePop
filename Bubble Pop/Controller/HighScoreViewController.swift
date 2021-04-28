@@ -57,7 +57,14 @@ extension HighScoreViewController: UITableViewDataSource {
         let customCell = highscoreTableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
         customCell.nameLabel.text = ("Name: \(highscores[indexPath.row][0])")
         customCell.scoreLabel.text = ("Score: \(highscores[indexPath.row][1])")
-        customCell.backgroundColor = .blue
+        let username = UserDefaults.standard.value(forKey: "username") as! String
+        //Highlights your usernames highscores
+        if(String(highscores[indexPath.row][0]) == username) {
+            customCell.backgroundColor = .systemRed
+        } else {
+            customCell.backgroundColor = .blue
+        }
+        
         return customCell
     }
 }
