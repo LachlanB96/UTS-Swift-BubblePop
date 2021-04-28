@@ -16,7 +16,7 @@ class BubbleFactory{
     var topMargin = 150
     var bottomMargin = 40
     
-    var maximumBubbles = 15
+    var maximumBubbles: Int = 15
     var bubbleSpawnLength = 10
     var bubbleSpawnRandomiser: Float = 0.8
     
@@ -34,6 +34,7 @@ class BubbleFactory{
     
     init(){
         bubbleArray = []
+        //maximumBubbles = UserDefaults.standard.value(forKey: "maxBubbles") as! Int
     }
     
     func tick(){

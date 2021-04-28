@@ -21,6 +21,10 @@ class GameSettingViewController: UIViewController {
         // Do any additional setup after loading the view.
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing));
         view.addGestureRecognizer(tap)
+        //let name = UserDefaults.standard.value(forKey: "username")
+        //nameTextField.text = name as? String
+        //let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        //var user: User = appDelegate.getUserObject()
         let name = UserDefaults.standard.value(forKey: "username")
         nameTextField.text = name as? String
         
