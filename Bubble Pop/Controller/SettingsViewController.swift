@@ -23,6 +23,8 @@ class SettingsViewController: UIViewController {
         if let highscores =  UserDefaults.standard.value(forKey: "highscores") as? [[String]] {
             print("Highscores: \(highscores)")
         }
+        //let appDeletegate = UIApplication.shared.delegate as! AppDelegate
+        //print(appDeletegate.user.getName())
     }
     /*
     // MARK: - Navigation
