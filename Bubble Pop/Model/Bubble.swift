@@ -16,6 +16,7 @@ class Bubble: UIButton {
     var lifeRandomSurvival = Float.random(in: 70...130) / 100.0
     var lifeLeft : Int = 0
     var timer = Timer()
+    var pressed: Bool = false
     
     override init(frame: CGRect)  {
         super.init(frame: frame)
@@ -57,16 +58,40 @@ class Bubble: UIButton {
     
     func tick() -> String{
         lifeLeft -= 1
-        if (lifeLeft < 0){
+        if (lifeLeft < 0 && pressed){
             timer.invalidate()
             self.removeFromSuperview()
             return "death"
+        } else if (lifeLeft < 0) {
+            lifeLeft += 10 //Give time for moving animation
+            print(lifeLeft)
+            self.animateOut()
+            pressed = true
         }
         return "alive"
     }
     
 //    func setLifeLeft(lifeLeft: Int)
     
+    func animateOut() {
+//        let movement = CABasicAnimation(keyPath: "position")
+//        movement.duration = 0.2
+//        movement.fromValue = 1
+//        movement.toValue = 0.8
+//        movement.repeatCount = 1
+//
+//        layer.add(movement, forKey: nil)
+        UIView.animate(withDuration: 0.5) {
+            //Get bounds of application
+            let width = 300
+            let height = 700
+            //We take the range of -width to width (-300...300)
+            let randomXOffet = Int.random(in: (width * -1) / 2...width / 2)
+            let randomYOffet = Int.random(in: (height * -1) / 2...height / 2)
+            self.center.x += CGFloat(randomXOffet)
+            self.center.y += CGFloat(randomYOffet)
+        }
+    }
    
     func animation() {
         let springAnimation = CASpringAnimation(keyPath: "transform.scale")

@@ -34,7 +34,7 @@ class BubbleFactory{
     
     init(){
         bubbleArray = []
-        maximumBubbles = UserDefaults.standard.value(forKey: "maxBubbles") as! Int
+        maximumBubbles = (UserDefaults.standard.value(forKey: "maxBubbles") ?? 15) as! Int
     }
     
     func tick(){

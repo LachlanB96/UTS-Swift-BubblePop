@@ -28,7 +28,10 @@ class GameViewController: UIViewController {
             print(highscores)
             playersHighscore = highscores.first(where: { $0[0] == "leach" }) ?? ["", "0"]
             print(playersHighscore)
+        } else {
+            playersHighscore = ["", "0"]
         }
+        print(playersHighscore)
         highscoreLabel.text = playersHighscore[1]
         // active timer, and generate bubble each second
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) {
