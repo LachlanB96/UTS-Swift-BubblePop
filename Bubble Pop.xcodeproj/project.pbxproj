@@ -21,6 +21,7 @@
 		C31577F826393431006E53CD /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C31577F626393431006E53CD /* CustomTableViewCell.xib */; };
 		C31577FB26394DBC006E53CD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31577FA26394DBC006E53CD /* SettingsViewController.swift */; };
 		C31577FE26395105006E53CD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31577FD26395105006E53CD /* User.swift */; };
+		C3157801263997B4006E53CD /* Highscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3157800263997B4006E53CD /* Highscore.swift */; };
 		C3933365262EBD8C00D0EC33 /* BubbleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3933364262EBD8C00D0EC33 /* BubbleFactory.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		C31577F626393431006E53CD /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		C31577FA26394DBC006E53CD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C31577FD26395105006E53CD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C3157800263997B4006E53CD /* Highscore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Highscore.swift; sourceTree = "<group>"; };
 		C3933364262EBD8C00D0EC33 /* BubbleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,6 +63,7 @@
 				54D7C29B261D6AE400BC61F9 /* Bubble.swift */,
 				C3933364262EBD8C00D0EC33 /* BubbleFactory.swift */,
 				C31577FD26395105006E53CD /* User.swift */,
+				C3157800263997B4006E53CD /* Highscore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			files = (
 				C31577F726393431006E53CD /* CustomTableViewCell.swift in Sources */,
 				54D7C279261D328900BC61F9 /* ViewController.swift in Sources */,
+				C3157801263997B4006E53CD /* Highscore.swift in Sources */,
 				54D7C28F261D3B8000BC61F9 /* HighScoreViewController.swift in Sources */,
 				C31577FB26394DBC006E53CD /* SettingsViewController.swift in Sources */,
 				C3933365262EBD8C00D0EC33 /* BubbleFactory.swift in Sources */,

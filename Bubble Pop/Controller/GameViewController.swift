@@ -5,6 +5,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var remainingTimeLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var highscoreLabel: UILabel!
     
     var name: String?
     var remainingTime = 60.0

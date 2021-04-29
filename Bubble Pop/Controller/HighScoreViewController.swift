@@ -27,7 +27,7 @@ class HighScoreViewController: UIViewController {
     // https://stackoverflow.com/a/39756583
     func sortScores(highscores: [[String]]) -> [[String]] {
         if(highscores.count > 1) {
-            return highscores.sorted(by: { $0[1] > $1[1] })
+            return highscores.sorted(by: { Float($0[1])! > Float($1[1])! })
         }
         return highscores
     }

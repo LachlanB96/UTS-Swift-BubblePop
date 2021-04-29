@@ -16,7 +16,7 @@ class BubbleFactory{
     var topMargin = 150
     var bottomMargin = 40
     
-    var maximumBubbles: Int = 15
+    var maximumBubbles: Int
     var bubbleSpawnLength = 10
     var bubbleSpawnRandomiser: Float = 0.8
     
@@ -34,14 +34,13 @@ class BubbleFactory{
     
     init(){
         bubbleArray = []
-        //maximumBubbles = UserDefaults.standard.value(forKey: "maxBubbles") as! Int
+        maximumBubbles = UserDefaults.standard.value(forKey: "maxBubbles") as! Int
     }
     
     func tick(){
         for bubble in bubbleArray {
             let bubbleResponse = bubble.tick()
             if (bubbleResponse == "death"){
-            
                 bubbleArray.remove(at: bubbleArray.index(of: bubble) ??  0)
             }
         }
@@ -51,7 +50,7 @@ class BubbleFactory{
         let distanceX = pow(origin.midX - collider.midX, 2)
         let distanceY = pow(origin.midY - collider.midY, 2)
         let distance = Int(Float(distanceX + distanceY).squareRoot())
-        let objectCombinedWidth = Int((origin.width + collider.width)) //create distance that objects can be apart
+        let objectCombinedWidth = Int((origin.width + collider.width)) / 2 //create distance that objects can be apart
         if (distance < objectCombinedWidth){
             return true
         } else {
@@ -77,19 +76,13 @@ class BubbleFactory{
             var validPlacement = false
             var posX: Int = 0
             var posY: Int = 0
-            var pos: CGPoint
             while (!validPlacement){
                 validPlacement = true
-                
                 posX = Int.random(in: leftMargin...400-rightMargin)
                 posY = Int.random(in: topMargin...800-bottomMargin)
-                pos = CGPoint.init(x: posX, y: posY)
                 for bubble in bubbleArray {
-                    //if (bubble.frame.contains(pos)){
                     if (collisionDetect(bubble.frame, CGRect(x: posX, y: posY, width: 40, height: 40))) {
                         validPlacement = false
-                        //print("Collission=======")
-                        //print("x: \(bubble.frame.midX), y: \(bubble.frame.midY)")
                     }
                 }
             }
@@ -98,16 +91,16 @@ class BubbleFactory{
             newBubble.animation()
             newBubble.addTarget(self, action: #selector(bubblePressed), for: .touchUpInside)
             view.addSubview(newBubble)
-            
         }
     }
     
 
     
-    @IBAction func bubblePressed(_ sender: UIButton){
-        //sender.removeFromSuperview()
+    @IBAction func bubblePressed(_ sender: Bubble){
         sender.backgroundColor = .black
-        //sender.flash()
+        sender.lifeLeft = 10
+        sender.flash()
+        sender.removeTarget(self, action: #selector(bubblePressed), for: .touchUpInside)
         if (sender.tag == comboKeeper.lastTagPressed){
             comboKeeper.onCombo = 1
         } else {

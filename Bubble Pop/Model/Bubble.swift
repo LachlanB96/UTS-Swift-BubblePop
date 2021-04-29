@@ -53,7 +53,6 @@ class Bubble: UIButton {
         self.points = points
         self.tag = points
         self.lifeLeft = Int(defaultLife * lifeRandomSurvival)
-        
     }
     
     func tick() -> String{
@@ -65,6 +64,8 @@ class Bubble: UIButton {
         }
         return "alive"
     }
+    
+//    func setLifeLeft(lifeLeft: Int)
     
    
     func animation() {
