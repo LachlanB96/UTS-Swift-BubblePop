@@ -21,6 +21,15 @@ class GameViewController: UIViewController {
         nameLabel.text = name
         //Convert time to Int so we round the number before stringifying
         remainingTimeLabel.text = String(Int(remainingTime))
+        var playersHighscore: [String] = []
+        if var highscores =  UserDefaults.standard.value(forKey: "highscores") as? [[String]] {
+            print(highscores)
+            highscores = highscores.sorted(by: { Float($0[1])! > Float($1[1])! })
+            print(highscores)
+            playersHighscore = highscores.first(where: { $0[0] == "leach" }) ?? ["", "0"]
+            print(playersHighscore)
+        }
+        highscoreLabel.text = playersHighscore[1]
         // active timer, and generate bubble each second
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) {
             timer in
