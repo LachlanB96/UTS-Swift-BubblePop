@@ -17,6 +17,9 @@ class Bubble: UIButton {
     var lifeLeft : Int = 0
     var timer = Timer()
     var pressed: Bool = false
+    var alive: Bool = true
+    var bubbleSpeed: Double = 1 //The speed at which the bubble transitions off screen
+    let minimumBubbleSpeed: Double = 0.2
     
     override init(frame: CGRect)  {
         super.init(frame: frame)
@@ -56,22 +59,23 @@ class Bubble: UIButton {
         self.lifeLeft = Int(defaultLife * lifeRandomSurvival)
     }
     
-    func tick() -> String{
+    func tick(gameTime: Double, gameRemainingTime: Double) -> String{
+        bubbleSpeed = gameRemainingTime / gameTime + minimumBubbleSpeed
         lifeLeft -= 1
         if (lifeLeft < 0 && pressed){
             timer.invalidate()
             self.removeFromSuperview()
+            alive = false
             return "death"
         } else if (lifeLeft < 0) {
             lifeLeft += 10 //Give time for moving animation
-            print(lifeLeft)
             self.animateOut()
             pressed = true
+            alive = false
         }
         return "alive"
     }
     
-//    func setLifeLeft(lifeLeft: Int)
     
     func animateOut() {
 //        let movement = CABasicAnimation(keyPath: "position")
@@ -81,15 +85,18 @@ class Bubble: UIButton {
 //        movement.repeatCount = 1
 //
 //        layer.add(movement, forKey: nil)
-        UIView.animate(withDuration: 0.5) {
+        UIView.animate(withDuration: bubbleSpeed) {
             //Get bounds of application
-            let width = 300
-            let height = 700
-            //We take the range of -width to width (-300...300)
-            let randomXOffet = Int.random(in: (width * -1) / 2...width / 2)
-            let randomYOffet = Int.random(in: (height * -1) / 2...height / 2)
-            self.center.x += CGFloat(randomXOffet)
-            self.center.y += CGFloat(randomYOffet)
+            let screenWidth = UIScreen.main.bounds.width
+            let screenHeight = UIScreen.main.bounds.height
+            if(self.center.x < screenWidth / 2){ //Check if bubble is on left side of screen
+                self.center.x = -40
+            } else { //Else the bubble is on the right side of screen
+                self.center.x = screenWidth + 40
+            }
+            //We take the range of -height to height (-700...700)
+            let randomYOffet = Int.random(in: 0 ... Int(screenHeight))
+            self.center.y = CGFloat(randomYOffet)
         }
     }
    

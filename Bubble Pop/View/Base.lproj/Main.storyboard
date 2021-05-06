@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hdy-dY-uIH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hdy-dY-uIH">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -48,6 +48,11 @@
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="srG-IZ-8Uq"/>
+                    <connections>
+                        <outlet property="highscoreButton" destination="WG7-LG-toU" id="EhP-xM-GFj"/>
+                        <outlet property="newGameButton" destination="uVm-iR-mUT" id="xuw-Qq-SF2"/>
+                        <outlet property="settingsButton" destination="WG7-LG-toU" id="Oes-a9-8Vv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -78,7 +83,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="0.0" maxValue="60" translatesAutoresizingMaskIntoConstraints="NO" id="Xbs-eV-tbZ">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="60" minValue="5" maxValue="200" translatesAutoresizingMaskIntoConstraints="NO" id="Xbs-eV-tbZ">
                                 <rect key="frame" x="95" y="313" width="228" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </slider>
@@ -132,12 +137,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="count down" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1q-hQ-tmM">
+                                <rect key="frame" x="82" y="418" width="250" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="la1-P2-Ymg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="MLV-Ta-TMs"/>
                     <connections>
+                        <outlet property="countDownLabel" destination="k1q-hQ-tmM" id="Xmp-ln-5M8"/>
                         <outlet property="highscoreLabel" destination="fYA-vS-eHK" id="5D3-tO-yC7"/>
                         <outlet property="nameLabel" destination="fkp-rs-zME" id="rXG-e5-oSP"/>
                         <outlet property="remainingTimeLabel" destination="nas-74-nno" id="V4l-PM-KRh"/>

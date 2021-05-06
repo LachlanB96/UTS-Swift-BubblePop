@@ -37,9 +37,9 @@ class BubbleFactory{
         maximumBubbles = (UserDefaults.standard.value(forKey: "maxBubbles") ?? 15) as! Int
     }
     
-    func tick(){
+    func tick(gameTime: Double, gameRemainingTime: Double){
         for bubble in bubbleArray {
-            let bubbleResponse = bubble.tick()
+            let bubbleResponse = bubble.tick(gameTime: gameTime, gameRemainingTime: gameRemainingTime)
             if (bubbleResponse == "death"){
                 bubbleArray.remove(at: bubbleArray.index(of: bubble) ??  0)
             }
@@ -97,16 +97,19 @@ class BubbleFactory{
 
     
     @IBAction func bubblePressed(_ sender: Bubble){
-        sender.backgroundColor = .black
-        sender.lifeLeft = 10
-        sender.flash()
-        sender.removeTarget(self, action: #selector(bubblePressed), for: .touchUpInside)
-        if (sender.tag == comboKeeper.lastTagPressed){
-            comboKeeper.onCombo = 1
-        } else {
-            comboKeeper.onCombo = 0
+        if(sender.alive){
+            sender.backgroundColor = .black
+            sender.lifeLeft = 10
+            sender.flash()
+            sender.pressed = true
+            sender.removeTarget(self, action: #selector(bubblePressed), for: .touchUpInside)
+            if (sender.tag == comboKeeper.lastTagPressed){
+                comboKeeper.onCombo = 1
+            } else {
+                comboKeeper.onCombo = 0
+            }
+            comboKeeper.lastTagPressed = sender.tag
+            score += Float(sender.tag) + (comboKeeper.onCombo * 0.5 * Float(sender.tag))
         }
-        comboKeeper.lastTagPressed = sender.tag
-        score += Float(sender.tag) + (comboKeeper.onCombo * 0.5 * Float(sender.tag))
     }
 }

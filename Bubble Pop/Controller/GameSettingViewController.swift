@@ -13,7 +13,7 @@ class GameSettingViewController: UIViewController {
     @IBOutlet weak var timeSlider: UISlider!
     
     
-    
+    let gameDefaultTime: Float = 60
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +27,7 @@ class GameSettingViewController: UIViewController {
         //var user: User = appDelegate.getUserObject()
         let name = UserDefaults.standard.value(forKey: "username")
         nameTextField.text = name as? String
+        timeSlider.value = gameDefaultTime
         
     }
     

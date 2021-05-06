@@ -55,7 +55,7 @@ extension HighScoreViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let customCell = highscoreTableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
-        customCell.nameLabel.text = ("Name: \(highscores[indexPath.row][0])")
+        customCell.nameLabel.text = highscores[indexPath.row][0]
         customCell.scoreLabel.text = ("Score: \(highscores[indexPath.row][1])")
         let username = UserDefaults.standard.value(forKey: "username") as! String
         //Highlights your usernames highscores
