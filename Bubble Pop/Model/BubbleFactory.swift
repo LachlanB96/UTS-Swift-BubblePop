@@ -41,7 +41,7 @@ class BubbleFactory{
         for bubble in bubbleArray {
             let bubbleResponse = bubble.tick(gameTime: gameTime, gameRemainingTime: gameRemainingTime)
             if (bubbleResponse == "death"){
-                bubbleArray.remove(at: bubbleArray.index(of: bubble) ??  0)
+                bubbleArray.remove(at: bubbleArray.firstIndex(of: bubble) ??  0)
             }
         }
     }
