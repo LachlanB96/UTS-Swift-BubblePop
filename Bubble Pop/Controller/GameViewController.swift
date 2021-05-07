@@ -37,10 +37,8 @@ class GameViewController: UIViewController {
             playersHighscore = ["", "0"]
         }
         highscoreLabel.text = ("HS: \(playersHighscore[1])")
-        
         startTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {
             timer in
-            
             self.countDownLabel.text = String(self.countDownTimer)
             self.flash(element: self.countDownLabel)
             if(self.countDownTimer == 0){
@@ -89,7 +87,6 @@ class GameViewController: UIViewController {
     }
     
     func flash(element: UIView) {
-        
         let flash = CABasicAnimation(keyPath: "opacity")
         flash.duration = 1
         flash.fromValue = 1
@@ -97,8 +94,6 @@ class GameViewController: UIViewController {
         flash.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         flash.autoreverses = true
         flash.repeatCount = 3
-        
         element.layer.add(flash, forKey: nil)
     }
-
 }
