@@ -1,18 +1,13 @@
-//
-//  HighScoreViewController.swift
-//  1-Navigation Controller
-//
-//  Created by Hua Zuo on 7/4/21.
-//
-
 import UIKit
 
+//A view that displays a table of the currently stored highscores in the game
 class HighScoreViewController: UIViewController {
 
     @IBOutlet weak var highscoreTableView: UITableView!
     
     var highscores: [[String]] = [[]]
         
+    //On load we need to delegate the table and give it a data source. We register a nib to the table view as well.
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "CustomTableViewCell", bundle: nil)
@@ -24,6 +19,7 @@ class HighScoreViewController: UIViewController {
         }
     }
     
+    //A function that takes in an array of strings and returns the array of strings sorted by the score
     // https://stackoverflow.com/a/39756583
     func sortScores(highscores: [[String]]) -> [[String]] {
         if(highscores.count > 1) {
@@ -32,13 +28,17 @@ class HighScoreViewController: UIViewController {
         return highscores
     }
     
+    //A function that allows the button to segue to the main menu
     @IBAction func mainMenuButton(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
     }
 }
 
+//We use protocols and extenstions to make the code more readable
+
 extension HighScoreViewController: UITableViewDelegate {
     
+    //A function that returns the amount of highscores stored in the array
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return highscores.count
     }
@@ -47,9 +47,6 @@ extension HighScoreViewController: UITableViewDelegate {
 extension HighScoreViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("The row is tapped")
-        print("\(highscores[indexPath.row][1])")
-        print(type(of: highscores[indexPath.row][1]))
         UserDefaults.standard.set([[]], forKey: "highscores")
     }
     

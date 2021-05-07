@@ -7,10 +7,12 @@
 
 import UIKit
 
+
+//Class bubble stores a UIButton with entended features
 class Bubble: UIButton {
     
-    let xPosition = Int.random(in: 20...400)
-    let yPosition = Int.random(in: 20...800)
+    var xPosition: Int = 0
+    var yPosition: Int = 0
     var points: Int = 0
     var defaultLife : Float = 30.0
     var lifeRandomSurvival = Float.random(in: 70...130) / 100.0
@@ -21,22 +23,22 @@ class Bubble: UIButton {
     var bubbleSpeed: Double = 1 //The speed at which the bubble transitions off screen
     let minimumBubbleSpeed: Double = 0.2
     
+    //The initialiser for the bubble, sets the bubbles position and size
     override init(frame: CGRect)  {
         super.init(frame: frame)
+        self.xPosition = Int.random(in: 20...Int(UIScreen.main.bounds.width - 20))
+        self.yPosition = Int.random(in: 20...Int(UIScreen.main.bounds.height - 20))
         self.backgroundColor = .red
         self.frame = CGRect(x: 60, y: 60, width: 40, height: 40)
         self.layer.cornerRadius = 0.5 * self.bounds.size.width
-        //timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true){
-        //    timer in
-        //    self.tick()
-        //}
     }
     
-
+    //A required INIT as bubble is a subclass of UIButton which requires this function
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //A setup function to give the bubble its proper functions and to change its properties according to the bubble factory
     func setup(colour: String, points: Int){
         switch colour{
         case "red":
@@ -59,6 +61,7 @@ class Bubble: UIButton {
         self.lifeLeft = Int(defaultLife * lifeRandomSurvival)
     }
     
+    //A function that is called for every event in the game, this tick is essentially a while loop while the bubble is alive
     func tick(gameTime: Double, gameRemainingTime: Double) -> String{
         bubbleSpeed = gameRemainingTime / gameTime + minimumBubbleSpeed
         lifeLeft -= 1
@@ -76,15 +79,8 @@ class Bubble: UIButton {
         return "alive"
     }
     
-    
+    //An animation function where the bubble dies and flies off to the nearest side of the screen
     func animateOut() {
-//        let movement = CABasicAnimation(keyPath: "position")
-//        movement.duration = 0.2
-//        movement.fromValue = 1
-//        movement.toValue = 0.8
-//        movement.repeatCount = 1
-//
-//        layer.add(movement, forKey: nil)
         UIView.animate(withDuration: bubbleSpeed) {
             //Get bounds of application
             let screenWidth = UIScreen.main.bounds.width
@@ -100,6 +96,7 @@ class Bubble: UIButton {
         }
     }
    
+    //An animation function which produces a spring like effect to the UI object
     func animation() {
         let springAnimation = CASpringAnimation(keyPath: "transform.scale")
         springAnimation.duration = 0.6
@@ -108,12 +105,11 @@ class Bubble: UIButton {
         springAnimation.repeatCount = 1
         springAnimation.initialVelocity = 0.5
         springAnimation.damping = 1
-        
         layer.add(springAnimation, forKey: nil)
     }
     
+    //An animation function to flash the UI object
     func flash() {
-        
         let flash = CABasicAnimation(keyPath: "opacity")
         flash.duration = 0.2
         flash.fromValue = 1
@@ -121,7 +117,6 @@ class Bubble: UIButton {
         flash.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         flash.autoreverses = true
         flash.repeatCount = 3
-        
         layer.add(flash, forKey: nil)
     }
     

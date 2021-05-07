@@ -1,12 +1,7 @@
-//
-//  ViewController.swift
-//  1-Navigation Controller
-//
-//  Created by Hua Zuo on 7/4/21.
-//
-
 import UIKit
 
+//This view is the main menu, the player can enter three other views from here
+//The highscore view, the game settings view, and the app settings view
 class ViewController: UIViewController {
 
     @IBOutlet weak var newGameButton: UIButton!
@@ -15,18 +10,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("loaded")
-        // Do any additional setup after loading the view.
-        //let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        //var user: User = appDelegate.createUserObject()
     }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        
-        print("rotated. width: \(UIScreen.main.bounds.width)")
-        newGameButton.center.x = UIScreen.main.bounds.width / 2
-    }
-
-
 }
 

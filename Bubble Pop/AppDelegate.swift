@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  1-Navigation Controller
-//
-//  Created by Hua Zuo on 7/4/21.
-//
-
 import UIKit
 
 @main
@@ -17,8 +10,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    // MARK: UISceneSession Lifecycle
-
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
@@ -30,12 +21,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-    
-    func createUserObject() -> User {
-        let user = User()
-        return user
-    }
-
-
 }
-

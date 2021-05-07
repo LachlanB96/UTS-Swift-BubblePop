@@ -20,7 +20,6 @@
 		C31577F726393431006E53CD /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31577F526393431006E53CD /* CustomTableViewCell.swift */; };
 		C31577F826393431006E53CD /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C31577F626393431006E53CD /* CustomTableViewCell.xib */; };
 		C31577FB26394DBC006E53CD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31577FA26394DBC006E53CD /* SettingsViewController.swift */; };
-		C31577FE26395105006E53CD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31577FD26395105006E53CD /* User.swift */; };
 		C3933365262EBD8C00D0EC33 /* BubbleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3933364262EBD8C00D0EC33 /* BubbleFactory.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +39,6 @@
 		C31577F526393431006E53CD /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		C31577F626393431006E53CD /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		C31577FA26394DBC006E53CD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		C31577FD26395105006E53CD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C3933364262EBD8C00D0EC33 /* BubbleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,7 +58,6 @@
 			children = (
 				54D7C29B261D6AE400BC61F9 /* Bubble.swift */,
 				C3933364262EBD8C00D0EC33 /* BubbleFactory.swift */,
-				C31577FD26395105006E53CD /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -199,7 +196,6 @@
 				54D7C29C261D6AE400BC61F9 /* Bubble.swift in Sources */,
 				54D7C292261D3BC100BC61F9 /* GameViewController.swift in Sources */,
 				54D7C277261D328900BC61F9 /* SceneDelegate.swift in Sources */,
-				C31577FE26395105006E53CD /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

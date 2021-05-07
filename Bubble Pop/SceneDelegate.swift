@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  1-Navigation Controller
-//
-//  Created by Hua Zuo on 7/4/21.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

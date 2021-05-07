@@ -1,12 +1,6 @@
-//
-//  BlueViewController.swift
-//  1-Navigation Controller
-//
-//  Created by Hua Zuo on 7/4/21.
-//
-
 import UIKit
 
+//In this view the user can change the settings for the game they are about to play
 class GameSettingViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
@@ -15,22 +9,17 @@ class GameSettingViewController: UIViewController {
     
     let gameDefaultTime: Float = 60
     
+    //When we load this view, we set the labels and sliders values to what we expect
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing));
         view.addGestureRecognizer(tap)
-        //let name = UserDefaults.standard.value(forKey: "username")
-        //nameTextField.text = name as? String
-        //let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        //var user: User = appDelegate.getUserObject()
         let name = UserDefaults.standard.value(forKey: "username")
         nameTextField.text = name as? String
         timeSlider.value = gameDefaultTime
-        
     }
     
+    //A segue into the game which passes the users username
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToGame" {
             let VC = segue.destination as! GameViewController
@@ -39,5 +28,4 @@ class GameSettingViewController: UIViewController {
             VC.remainingTime = Double(timeSlider.value)
         }
     }
-  
 }

@@ -7,36 +7,36 @@
 import UIKit
 import Foundation
 
+
+//BubbleFactory is the intelligence behind spawning bubbles and keeping player score
 class BubbleFactory{
     
+    //A structure to keep track of the current combo
+    struct combo {
+        var lastTagPressed: Int;
+        var onCombo: Float;
+    }
     
     //Bubble spawn margins
     var leftMargin = 40
     var rightMargin = 40
     var topMargin = 150
     var bottomMargin = 40
-    
     var maximumBubbles: Int
     var bubbleSpawnLength = 10
     var bubbleSpawnRandomiser: Float = 0.8
-    
     var score: Float = 0;
-    
     var bubbleArray: [Bubble];
-    
-    struct combo {
-        var lastTagPressed: Int;
-        var onCombo: Float;
-    }
-    
     var comboKeeper = combo.init(lastTagPressed: 0, onCombo: 0)
     
-    
+    //Initialise the bubble factory with 15 bubbles or what the user defined in the settings
     init(){
         bubbleArray = []
         maximumBubbles = (UserDefaults.standard.value(forKey: "maxBubbles") ?? 15) as! Int
     }
     
+    //For each repetition of the timer, tick() is called which then calls the bubbles own tick function.
+    //This function is essentially the main loop of the game, checking if the bubble is alive and allowing it to tick
     func tick(gameTime: Double, gameRemainingTime: Double){
         for bubble in bubbleArray {
             let bubbleResponse = bubble.tick(gameTime: gameTime, gameRemainingTime: gameRemainingTime)
@@ -46,6 +46,7 @@ class BubbleFactory{
         }
     }
     
+    //A function that takes in two CGRects and tests to see if they are overlapping on a coordinate basis
     func collisionDetect(_ origin : CGRect, _ collider : CGRect) -> Bool {
         let distanceX = pow(origin.midX - collider.midX, 2)
         let distanceY = pow(origin.midY - collider.midY, 2)
@@ -58,6 +59,7 @@ class BubbleFactory{
         }
     }
     
+    //If possible, this function is called to add a new bubble to the bubble factory
     func addBubble(view: UIView){
         if (bubbleArray.count < maximumBubbles){
             let newBubble = Bubble()
@@ -95,7 +97,7 @@ class BubbleFactory{
     }
     
 
-    
+    //A function that is called when a bubble is pressed. If the bubble is alive and pressed, this function will execute
     @IBAction func bubblePressed(_ sender: Bubble){
         if(sender.alive){
             sender.backgroundColor = .black
